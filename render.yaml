@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fiyat-takip-botu
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: CHECK_INTERVAL_MINUTES
+        value: 30
+      - key: PORT
+        value: 10000

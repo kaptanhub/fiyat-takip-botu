@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  fiyat-takip-bot:
+    build: .
+    container_name: fiyat_takip_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      # Veritabanının konteyner yeniden başlasa bile silinmemesi için kalıcı disk bağlama
+      - ./fiyat_takip.db:/app/fiyat_takip.db
